@@ -1,18 +1,18 @@
 //
-//  HCMultiSlideViewCell.m
+//  HCCarouselViewCell.m
 //  Cobrain
 //
 //  Created by Aaron Hull on 1/22/14.
 //  Copyright (c) 2014 Cobrain. All rights reserved.
 //
 
-#import "HCMultiSlideViewCell.h"
+#import "HCCarouselViewCell.h"
 
-extern CGFloat _HCMultiSlideViewDefaultCarouselHeight;
+extern CGFloat _HCCarouselViewDefaultCarouselHeight;
 
-extern CGFloat _HCMultiSlideViewDefaultItemWidth;
+extern CGFloat _HCCarouselViewDefaultItemWidth;
 
-@implementation HCMultiSlideViewCell
+@implementation HCCarouselViewCell
 @synthesize reuseIdentifier = _reuseIdentifier;
 
 - (id)initWithFrame:(CGRect)frame

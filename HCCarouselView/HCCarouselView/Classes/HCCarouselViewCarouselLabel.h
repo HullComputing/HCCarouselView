@@ -1,5 +1,5 @@
 //
-//  HCMultiSlideViewCarouselLabel.h
+//  HCCarouselViewCarouselLabel.h
 //  Cobrain
 //
 //  Created by Aaron Hull on 1/22/14.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HCMultiSlideViewCarouselLabel : UILabel
-+ (HCMultiSlideViewCarouselLabel *)carouselLabelWithTitle:(NSString *)title;
+@interface HCCarouselViewCarouselLabel : UILabel
++ (HCCarouselViewCarouselLabel *)carouselLabelWithTitle:(NSString *)title;
 @end

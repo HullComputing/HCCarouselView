@@ -1,19 +1,19 @@
 //
-//  HCMultiSlideViewCarousel.m
+//  HCCarouselViewCarousel.m
 //  Cobrain
 //
 //  Created by Aaron Hull on 1/22/14.
 //  Copyright (c) 2014 Cobrain. All rights reserved.
 //
 
-#import "HCMultiSlideViewCarousel.h"
+#import "HCCarouselViewCarousel.h"
 
-@interface HCMultiSlideViewCarousel ()
-//@property (nonatomic, strong) HCMultiSlideView *superview;
+@interface HCCarouselViewCarousel ()
+//@property (nonatomic, strong) HCCarouselView *superview;
 
 @end
 
-@implementation HCMultiSlideViewCarousel
+@implementation HCCarouselViewCarousel
 
 @synthesize itemsWidth, itemWidths, innerCarouselHeight, headerHeight, footerHeight, numberOfItems, headerView, footerView, headerTitle, footerTitle, carousel;
 
@@ -49,22 +49,22 @@
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
     UITouch *touch = [touches anyObject];
-    HCMultiSlideViewCell *cell;
+    HCCarouselViewCell *cell;
     UIView *view = [touch view];
-    if (![view isKindOfClass:[HCMultiSlideViewCell class]]) {
+    if (![view isKindOfClass:[HCCarouselViewCell class]]) {
         UIView *superview = view.superview;
-        if ([superview isKindOfClass:[HCMultiSlideViewCell class]]) {
-            cell = (HCMultiSlideViewCell *)superview;
+        if ([superview isKindOfClass:[HCCarouselViewCell class]]) {
+            cell = (HCCarouselViewCell *)superview;
         }
     } else {
-        cell = (HCMultiSlideViewCell *)view;
+        cell = (HCCarouselViewCell *)view;
     }
     if (cell) {
-        [(HCMultiSlideView *)self.superview didSelectCell:cell];
+        [(HCCarouselView *)self.superview didSelectCell:cell];
     }
 }
 
-//static NSString *cellIdentifier = @"HCMultiSlideCollectionCell";
+//static NSString *cellIdentifier = @"HCCarouselCollectionCell";
 
 //- (id)initWithCarousel:(NSInteger)carousel startingY:(CGFloat)yPosition carouselHeight:(CGFloat)carouselHeight headerHeight:(CGFloat)headerHeight footerHeight:(CGFloat)footerHeight width:(CGFloat)width
 //{
@@ -76,7 +76,7 @@
 //        CGFloat currentY = 0;
 //        if (headerHeight) {
 //            
-//            self.headerView = [[HCMultiSlideHeaderFooterView alloc] initWithFrame:CGRectMake(0, currentY, width, headerHeight)];
+//            self.headerView = [[HCCarouselHeaderFooterView alloc] initWithFrame:CGRectMake(0, currentY, width, headerHeight)];
 //            currentY += headerHeight;
 //            [self.headerView setBackgroundColor:[UIColor redColor]];
 //            [self addSubview:self.headerView];
@@ -100,7 +100,7 @@
 //        currentY += carouselHeight;
 //        
 //        if (footerHeight) {
-//            self.footerView = [[HCMultiSlideHeaderFooterView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.collectionView.frame), width, footerHeight)];
+//            self.footerView = [[HCCarouselHeaderFooterView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.collectionView.frame), width, footerHeight)];
 //            [self.footerView setBackgroundColor:[UIColor blueColor]];
 //            [self addSubview:self.footerView];
 //        }
@@ -153,7 +153,7 @@
 //{
 //    
 //    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
-//    HCMultiSlideCell *cellView = [self.parentView.dataSource multiSlideView:self.parentView cellForCarouselAtIndexPath:[NSIndexPath indexPathForItem:indexPath.item inCarousel:self.carousel]];
+//    HCCarouselCell *cellView = [self.parentView.dataSource multiSlideView:self.parentView cellForCarouselAtIndexPath:[NSIndexPath indexPathForItem:indexPath.item inCarousel:self.carousel]];
 //    CGRect frame = cell.frame;
 //    frame.size.height = cellView.frame.size.height;
 //    frame.size.width = cellView.frame.size.width;
@@ -161,7 +161,7 @@
 //    cellView.frame = cell.bounds;
 //    [cell addSubview:cellView];
 //    if (!cell) {
-//        //        cell = [[HCMultiSlideCell alloc] initWithFrame:CGRectMake(0, 0, msCell.frame.size.width, msCell.frame.size.height)];
+//        //        cell = [[HCCarouselCell alloc] initWithFrame:CGRectMake(0, 0, msCell.frame.size.width, msCell.frame.size.height)];
 //    }
 //    
 //    //    [collectionView setContentSize:CGSizeMake(CGRectGetMaxX(cell.frame), collectionView.frame.size.height)];

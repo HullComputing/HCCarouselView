@@ -1,19 +1,19 @@
 //
-//  HCMultiSlideViewCarouselLabel.m
+//  HCCarouselViewCarouselLabel.m
 //  Cobrain
 //
 //  Created by Aaron Hull on 1/22/14.
 //  Copyright (c) 2014 Cobrain. All rights reserved.
 //
 
-#import "HCMultiSlideViewCarouselLabel.h"
+#import "HCCarouselViewCarouselLabel.h"
 #import "CBConstants.h"
 
-@implementation HCMultiSlideViewCarouselLabel
+@implementation HCCarouselViewCarouselLabel
 
-+ (HCMultiSlideViewCarouselLabel *)carouselLabelWithTitle:(NSString *)title
++ (HCCarouselViewCarouselLabel *)carouselLabelWithTitle:(NSString *)title
 {
-    HCMultiSlideViewCarouselLabel *label = [[self alloc] init];
+    HCCarouselViewCarouselLabel *label = [[self alloc] init];
     label.text = [NSString stringWithFormat:@"    %@", title];
     label.font = [UIFont fontWithName:kCBUIHelveticaNeueBold size:17.0];
     label.textColor = [UIColor whiteColor];

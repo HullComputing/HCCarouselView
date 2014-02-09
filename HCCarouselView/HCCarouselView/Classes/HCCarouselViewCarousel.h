@@ -1,5 +1,5 @@
 //
-//  HCMultiSlideViewCarousel.h
+//  HCCarouselViewCarousel.h
 //  Cobrain
 //
 //  Created by Aaron Hull on 1/22/14.
@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "HCMultiSlideView.h"
+#import "HCCarouselView.h"
 
-@interface HCMultiSlideViewCarousel : UIScrollView {
+@interface HCCarouselViewCarousel : UIScrollView {
     CGFloat itemsWidth;
     CGFloat innerCarouselHeight;
     CGFloat headerHeight;
@@ -36,7 +36,7 @@
 @property (nonatomic, copy) NSString *footerTitle;
 @property (nonatomic, assign) CGFloat itemsWidth;
 @property (nonatomic) NSInteger carousel;
-//@property (nonatomic, strong) HCMultiSlideView *parentView;
+//@property (nonatomic, strong) HCCarouselView *parentView;
 //@property (nonatomic, strong) UIView *headerView;
 //@property (nonatomic, strong) UIView *footerView;
 //@property (nonatomic, strong) NSString *headerTitle;

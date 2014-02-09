@@ -1,5 +1,5 @@
 //
-//  HCMultiSlideViewCell.h
+//  HCCarouselViewCell.h
 //  Cobrain
 //
 //  Created by Aaron Hull on 1/22/14.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HCMultiSlideViewCell : UIView {
+@interface HCCarouselViewCell : UIView {
 @private
     UIView *_contentView;
     NSString *_reuseIdentifier;

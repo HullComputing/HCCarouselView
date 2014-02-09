@@ -1,19 +1,19 @@
 //
-//  HCMultiSlideViewController.m
+//  HCCarouselViewController.m
 //  Cobrain
 //
 //  Created by Aaron Hull on 1/20/14.
 //  Copyright (c) 2014 Cobrain. All rights reserved.
 //
 
-#import "HCMultiSlideViewController.h"
+#import "HCCarouselViewController.h"
 
-@interface HCMultiSlideViewController ()
+@interface HCCarouselViewController ()
 @property (nonatomic, strong) NSArray *carousels;
 
 @end
 
-@implementation HCMultiSlideViewController
+@implementation HCCarouselViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -62,12 +62,12 @@
     [super didReceiveMemoryWarning];
 }
 
-- (HCMultiSlideViewCell *)multiSlideView:(HCMultiSlideView *)multiSlideView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+- (HCCarouselViewCell *)multiSlideView:(HCCarouselView *)multiSlideView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     return nil;
 }
 
-- (NSInteger)multiSlideView:(HCMultiSlideView *)multiSlideView numberOfItemsInCarousel:(NSInteger)carousel
+- (NSInteger)multiSlideView:(HCCarouselView *)multiSlideView numberOfItemsInCarousel:(NSInteger)carousel
 {
     return 0;
 }

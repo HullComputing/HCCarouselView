@@ -1,5 +1,5 @@
 //
-//  HCMultiSlideView.h
+//  HCCarouselView.h
 //  Cobrain
 //
 //  Created by Aaron Hull on 1/22/14.
@@ -7,43 +7,43 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "HCMultiSlideViewCell.h"
+#import "HCCarouselViewCell.h"
 
-@class HCMultiSlideView;
+@class HCCarouselView;
 
-@protocol HCMultiSlideViewDataSource <NSObject>
+@protocol HCCarouselViewDataSource <NSObject>
 @required
-- (NSInteger)multiSlideView:(HCMultiSlideView *)multiSlideView numberOfItemsInCarousel:(NSInteger)carousel;
-- (HCMultiSlideViewCell *)multiSlideView:(HCMultiSlideView *)multiSlideView cellForItemAtIndexPath:(NSIndexPath *)indexPath;
+- (NSInteger)multiSlideView:(HCCarouselView *)multiSlideView numberOfItemsInCarousel:(NSInteger)carousel;
+- (HCCarouselViewCell *)multiSlideView:(HCCarouselView *)multiSlideView cellForItemAtIndexPath:(NSIndexPath *)indexPath;
 
 @optional
-- (NSInteger)numberOfCarouselsInMultiSlideView:(HCMultiSlideView *)multiSlideView;
-- (NSString *)multiSlideView:(HCMultiSlideView *)multiSlideView titleForHeaderInCarousel:(NSInteger)carousel;
-- (NSString *)multiSlideView:(HCMultiSlideView *)multiSlideView titleForFooterInCarousel:(NSInteger)carousel;
+- (NSInteger)numberOfCarouselsInMultiSlideView:(HCCarouselView *)multiSlideView;
+- (NSString *)multiSlideView:(HCCarouselView *)multiSlideView titleForHeaderInCarousel:(NSInteger)carousel;
+- (NSString *)multiSlideView:(HCCarouselView *)multiSlideView titleForFooterInCarousel:(NSInteger)carousel;
 
 @end
 
-@protocol HCMultiSlideViewDelegate <UIScrollViewDelegate>
+@protocol HCCarouselViewDelegate <UIScrollViewDelegate>
 @optional
-- (CGFloat)multiSlideView:(HCMultiSlideView *)multiSlideView heightForCarousel:(NSInteger)carousel;
-- (NSIndexPath *)multiSlideView:(HCMultiSlideView *)multiSlideView willSelectItemAtIndexPath:(NSIndexPath *)indexPath;
+- (CGFloat)multiSlideView:(HCCarouselView *)multiSlideView heightForCarousel:(NSInteger)carousel;
+- (NSIndexPath *)multiSlideView:(HCCarouselView *)multiSlideView willSelectItemAtIndexPath:(NSIndexPath *)indexPath;
 
-- (CGFloat)multiSlideView:(HCMultiSlideView *)multiSlideView widthForItemAtIndexPath:(NSIndexPath *)indexPath;
+- (CGFloat)multiSlideView:(HCCarouselView *)multiSlideView widthForItemAtIndexPath:(NSIndexPath *)indexPath;
 
-- (CGFloat)paddingBetweenCarouselsInMultiSlideView:(HCMultiSlideView *)multiSlideView;
+- (CGFloat)paddingBetweenCarouselsInMultiSlideView:(HCCarouselView *)multiSlideView;
 
-- (CGFloat)multiSlideView:(HCMultiSlideView *)multiSlideView heightForHeaderInCarousel:(NSInteger)carousel;
-- (CGFloat)multiSlideView:(HCMultiSlideView *)multiSlideView heightForFooterInCarousel:(NSInteger)carousel;
-- (UIView *)multiSlideView:(HCMultiSlideView *)multiSlideView viewForHeaderInCarousel:(NSInteger)carousel;
-- (UIView *)multiSlideView:(HCMultiSlideView *)multiSlideView viewForFooterInCarousel:(NSInteger)carousel;
-- (CGSize)multiSlideView:(HCMultiSlideView *)multiSlideView sizeForItemsInCarousel:(NSInteger)carousel;
-- (void)multiSlideView:(HCMultiSlideView *)multiSlideView didSelectItemAtIndexPath:(NSIndexPath *)indexPath;
+- (CGFloat)multiSlideView:(HCCarouselView *)multiSlideView heightForHeaderInCarousel:(NSInteger)carousel;
+- (CGFloat)multiSlideView:(HCCarouselView *)multiSlideView heightForFooterInCarousel:(NSInteger)carousel;
+- (UIView *)multiSlideView:(HCCarouselView *)multiSlideView viewForHeaderInCarousel:(NSInteger)carousel;
+- (UIView *)multiSlideView:(HCCarouselView *)multiSlideView viewForFooterInCarousel:(NSInteger)carousel;
+- (CGSize)multiSlideView:(HCCarouselView *)multiSlideView sizeForItemsInCarousel:(NSInteger)carousel;
+- (void)multiSlideView:(HCCarouselView *)multiSlideView didSelectItemAtIndexPath:(NSIndexPath *)indexPath;
 @end
 
 
-@interface HCMultiSlideView : UIScrollView <UIScrollViewDelegate> {
+@interface HCCarouselView : UIScrollView <UIScrollViewDelegate> {
     @private
-    __unsafe_unretained id<HCMultiSlideViewDataSource> _dataSource;
+    __unsafe_unretained id<HCCarouselViewDataSource> _dataSource;
 //    CGFloat _carouselHeight;
     BOOL _needsReload;
 //    NSIndexPath *_selectedRow;
@@ -80,18 +80,18 @@
 - (NSInteger)numberOfItemsInCarousel:(NSInteger)section;
 //- (NSArray *)indexPathsForItemsInRect:(CGRect)rect;
 //- (NSIndexPath *)indexPathForItemAtPoint:(CGPoint)point;
-- (NSIndexPath *)indexPathForCell:(HCMultiSlideViewCell *)cell;
+- (NSIndexPath *)indexPathForCell:(HCCarouselViewCell *)cell;
 //- (NSArray *)indexPathsForVisibleItems;
 //- (NSArray *)visibleCells;
-- (HCMultiSlideViewCell *)dequeueReusableCellWithIdentifier:(NSString *)identifier;
-- (HCMultiSlideViewCell *)cellForItemAtIndexPath:(NSIndexPath *)indexPath;
+- (HCCarouselViewCell *)dequeueReusableCellWithIdentifier:(NSString *)identifier;
+- (HCCarouselViewCell *)cellForItemAtIndexPath:(NSIndexPath *)indexPath;
 
 - (CGRect)rectForCarousel:(NSInteger)carousel;
 - (CGRect)rectForHeaderInCarousel:(NSInteger)carousel;
 - (CGRect)rectForFooterInCarousel:(NSInteger)carousel;
 - (CGRect)rectForItemAtIndexPath:(NSIndexPath *)indexPath;
 
-- (void)didSelectCell:(HCMultiSlideViewCell *)cell;
+- (void)didSelectCell:(HCCarouselViewCell *)cell;
 
 - (void)beginUpdates;
 - (void)endUpdates;
@@ -102,8 +102,8 @@
 //- (NSIndexPath *)indexPathForSelectedItem;
 
 
-@property (nonatomic, assign) id<HCMultiSlideViewDelegate> delegate;
-@property (nonatomic, assign) id<HCMultiSlideViewDataSource> dataSource;
+@property (nonatomic, assign) id<HCCarouselViewDelegate> delegate;
+@property (nonatomic, assign) id<HCCarouselViewDataSource> dataSource;
 //@property (nonatomic) CGFloat carouselHeight;
 @property (nonatomic) CGFloat carouselHeaderHeight;
 @property (nonatomic) CGFloat carouselFooterHeight;
@@ -111,7 +111,7 @@
 
 @end
 
-@interface NSIndexPath (HCMultiSlideView)
+@interface NSIndexPath (HCCarouselView)
 
 + (NSIndexPath *)indexPathForItem:(NSInteger)item inCarousel:(NSInteger)carousel;
 
