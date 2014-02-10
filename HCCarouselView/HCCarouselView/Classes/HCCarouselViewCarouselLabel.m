@@ -7,7 +7,6 @@
 //
 
 #import "HCCarouselViewCarouselLabel.h"
-#import "CBConstants.h"
 
 @implementation HCCarouselViewCarouselLabel
 
@@ -15,7 +14,7 @@
 {
     HCCarouselViewCarouselLabel *label = [[self alloc] init];
     label.text = [NSString stringWithFormat:@"    %@", title];
-    label.font = [UIFont fontWithName:kCBUIHelveticaNeueBold size:17.0];
+    label.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:17.0];
     label.textColor = [UIColor whiteColor];
     label.shadowColor = [UIColor colorWithRed:100/255.f green:105/255.f blue:110/255.f alpha:1];
     label.shadowOffset = CGSizeMake(0, 1);
