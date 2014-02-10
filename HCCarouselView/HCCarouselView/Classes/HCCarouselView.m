@@ -575,7 +575,7 @@ const CGFloat _HCCarouselViewDefaultItemWidth = 100.0;
 
 - (HCCarouselViewCell *)dequeueReusableCellWithIdentifier:(NSString *)identifier
 {
-    HCCarouselViewCell *cell;
+    HCCarouselViewCell *cell = nil;
     for (HCCarouselViewCell *reusableCell in _reusableCells) {
         if ([reusableCell.reuseIdentifier isEqualToString:identifier]) {
             cell = reusableCell;
