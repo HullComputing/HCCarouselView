@@ -425,7 +425,7 @@ const CGFloat _HCCarouselViewDefaultItemWidth = 100.0;
             
             CGFloat offset = (item * (size.width + 10.0)) + 10.0;
             //(carouselRecord.carouselHeight - size.height) / 2.0
-            return CGRectMake(offset, 5.0, size.width, size.height);
+            return CGRectMake(offset, 0.0, size.width, size.height);
         }
     }
     
