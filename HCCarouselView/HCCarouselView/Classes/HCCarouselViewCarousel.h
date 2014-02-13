@@ -11,7 +11,7 @@
 
 @interface HCCarouselViewCarousel : UIScrollView {
     CGFloat itemsWidth;
-    CGFloat innerCarouselHeight;
+    CGFloat itemHeight;
     CGFloat headerHeight;
     CGFloat footerHeight;
     NSInteger numberOfItems;
@@ -27,7 +27,7 @@
 - (id)initWithFrame:(CGRect)frame;
 @property (nonatomic, assign) CGFloat headerHeight;
 @property (nonatomic, assign) CGFloat footerHeight;
-@property (nonatomic, assign) CGFloat innerCarouselHeight;
+@property (nonatomic, assign) CGFloat itemHeight;
 @property (nonatomic, readonly) CGFloat *itemWidths;
 @property (nonatomic, readonly) NSInteger numberOfItems;
 @property (nonatomic, strong) UIView *headerView;

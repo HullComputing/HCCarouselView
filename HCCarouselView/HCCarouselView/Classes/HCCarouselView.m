@@ -120,7 +120,7 @@ const CGFloat _HCCarouselViewDefaultItemWidth = 100.0;
 //            _carouselHeight = _delegateHas.heightForCarousel ? [self.delegate multiSlideView:self heightForCarousel:carousel] : defaultCarouselHeight;
             
             HCCarouselViewCarousel *carouselRecord = [[HCCarouselViewCarousel alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, defaultCarouselHeight)];
-            carouselRecord.innerCarouselHeight = _delegateHas.heightForCarousel ? [self.delegate multiSlideView:self heightForCarousel:carousel] : defaultCarouselHeight;
+            carouselRecord.itemHeight = _delegateHas.heightForCarousel ? [self.delegate multiSlideView:self heightForCarousel:carousel] : defaultCarouselHeight;
             //[[HCCarouselViewCarousel alloc] initWithFrame:CGRectMake(0, carouselRecord.headerHeight, self.frame.size.width, _carouselHeight)];
             
             carouselRecord.headerView = _delegateHas.viewForHeaderInCarousel ? [self.delegate multiSlideView:self viewForHeaderInCarousel:carousel] : nil;
@@ -365,7 +365,7 @@ const CGFloat _HCCarouselViewDefaultItemWidth = 100.0;
     HCCarouselViewCarousel *carouselRecord = [_carousels objectAtIndex:carousel];
     CGFloat offset = [self _offsetForCarousel:carousel];
      offset += carouselRecord.headerHeight;
-    return [self _CGRectFromVerticalOffset:offset height:[[_carousels objectAtIndex:carousel] innerCarouselHeight]];
+    return [self _CGRectFromVerticalOffset:offset height:[[_carousels objectAtIndex:carousel] carouselHeight]];
 }
 
 - (CGRect)rectForHeaderInCarousel:(NSInteger)carousel
@@ -391,7 +391,7 @@ const CGFloat _HCCarouselViewDefaultItemWidth = 100.0;
     HCCarouselViewCarousel *carouselRecord = [_carousels objectAtIndex:carousel];
     CGFloat offset = [self _offsetForCarousel:carousel];
     offset += carouselRecord.headerHeight;
-    return [self _CGRectFromVerticalOffset:offset height:carouselRecord.innerCarouselHeight];
+    return [self _CGRectFromVerticalOffset:offset height:carouselRecord.itemHeight];
 }
 
 - (CGRect)rectForItemAtIndexPath:(NSIndexPath *)indexPath
@@ -414,12 +414,12 @@ const CGFloat _HCCarouselViewDefaultItemWidth = 100.0;
             CGSize size;
             if (_delegateHas.sizeForItemsInCarousel) {
                 size = [self.delegate multiSlideView:self sizeForItemsInCarousel:indexPath.carousel];
-                if (size.height > carouselRecord.innerCarouselHeight - 10.0) {
-                    size.height = carouselRecord.innerCarouselHeight - 10.0;
+                if (size.height > carouselRecord.itemHeight) {
+                    size.height = carouselRecord.itemHeight;
                 }
             } else {
                 size.width = _delegateHas.widthForItemAtIndexPath ? [self.delegate multiSlideView:self widthForItemAtIndexPath:indexPath] : _HCCarouselViewDefaultItemWidth;
-                size.height = carouselRecord.innerCarouselHeight - 10.0;
+                size.height = carouselRecord.itemHeight;
             }
             
             
@@ -587,47 +587,6 @@ const CGFloat _HCCarouselViewDefaultItemWidth = 100.0;
     }
     return cell;
 }
-
-//- (void)layoutCarousels
-//{
-//    
-//    NSMutableArray *carouselHeights = [[NSMutableArray alloc] initWithCapacity:self.numberOfCarousels];
-//    CGFloat totalHeight = 0;
-//    for (int i = 0; i < self.numberOfCarousels; i++) {
-//        CGFloat height = [self.dataSource multiSlideView:self heightForCarousel:[NSIndexPath indexPathForItem:0 inCarousel:i] ];
-//        totalHeight += height;
-//        [carouselHeights addObject:[NSNumber numberWithFloat:height]];
-//    }
-//    self.carouselHeights = carouselHeights;
-//    
-//    CGFloat currentY = 0;
-//    for (int carousel = 0; carousel < self.numberOfCarousels; carousel++) {
-//        HCCarouselCarousel *multiSlideCarousel = [[HCCarouselCarousel alloc] initWithCarousel:carousel startingY:currentY carouselHeight:[self.dataSource multiSlideView:self heightForCarousel:[NSIndexPath indexPathForItem:0 inCarousel:carousel]] headerHeight:[self.dataSource multiSlideView:self heightForHeaderInCarousel:carousel] footerHeight:[self.dataSource multiSlideView:self heightForFooterInCarousel:carousel] width:self.frame.size.width];
-//        multiSlideCarousel.parentView = self;
-//        currentY += multiSlideCarousel.frame.size.height;
-//        [self setContentSize:CGSizeMake(self.frame.size.width, currentY)];
-//        [self addSubview:multiSlideCarousel];
-//        
-//        
-//        if (multiSlideCarousel.headerView) {
-//            if ([self.dataSource respondsToSelector:@selector(multiSlideView:textForHeaderInCarousel:)]) {
-//                [multiSlideCarousel.headerView setTitle:[self.dataSource multiSlideView:self textForHeaderInCarousel:carousel]];
-//            }
-//        }
-//        
-//        if (multiSlideCarousel.footerView) {
-//            if ([self.dataSource respondsToSelector:@selector(multiSlideView:textForFooterInCarousel:)]) {
-//                [multiSlideCarousel.footerView setTitle:[self.dataSource multiSlideView:self textForFooterInCarousel:carousel]];
-//            }
-//        }
-//        
-//    }
-//}
-
-//- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
-//{
-//    [self layoutSubviews];
-//}
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {

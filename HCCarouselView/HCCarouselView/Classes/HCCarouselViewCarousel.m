@@ -15,7 +15,7 @@
 
 @implementation HCCarouselViewCarousel
 
-@synthesize itemsWidth, itemWidths, innerCarouselHeight, headerHeight, footerHeight, numberOfItems, headerView, footerView, headerTitle, footerTitle, carousel;
+@synthesize itemsWidth, itemWidths, itemHeight, headerHeight, footerHeight, numberOfItems, headerView, footerView, headerTitle, footerTitle, carousel;
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -28,7 +28,7 @@
 
 - (CGFloat)carouselHeight
 {
-    return innerCarouselHeight + headerHeight + footerHeight;
+    return itemHeight + headerHeight + footerHeight;
 }
 
 - (void)setNumberOfItems:(NSInteger)items withWidths:(CGFloat *)newItemWidths
