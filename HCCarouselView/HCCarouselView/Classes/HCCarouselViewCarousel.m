@@ -15,7 +15,7 @@
 
 @implementation HCCarouselViewCarousel
 
-@synthesize itemsWidth, itemWidths, itemHeight, headerHeight, footerHeight, numberOfItems, headerView, footerView, headerTitle, footerTitle, carousel;
+@synthesize itemsWidth, itemHeight, headerHeight, footerHeight, numberOfItems, headerView, footerView, headerTitle, footerTitle, carousel;
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -30,13 +30,13 @@
 {
     return itemHeight + headerHeight + footerHeight;
 }
-
-- (void)setNumberOfItems:(NSInteger)items withWidths:(CGFloat *)newItemWidths
-{
-    itemWidths = realloc(itemWidths, sizeof(CGFloat) * items);
-    memcpy(itemWidths, newItemWidths, sizeof(CGFloat) * items);
-    numberOfItems = items;
-}
+//
+//- (void)setNumberOfItems:(NSInteger)items withWidths:(CGFloat *)newItemWidths
+//{
+//    itemWidths = realloc(itemWidths, sizeof(CGFloat) * items);
+//    memcpy(itemWidths, newItemWidths, sizeof(CGFloat) * items);
+//    numberOfItems = items;
+//}
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {

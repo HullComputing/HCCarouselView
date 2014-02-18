@@ -23,13 +23,13 @@
 }
 
 - (CGFloat)carouselHeight;
-- (void)setNumberOfItems:(NSInteger)items withWidths:(CGFloat *)newItemWidths;
+//- (void)setNumberOfItems:(NSInteger)items withWidths:(CGFloat *)newItemWidths;
 - (id)initWithFrame:(CGRect)frame;
 @property (nonatomic, assign) CGFloat headerHeight;
 @property (nonatomic, assign) CGFloat footerHeight;
 @property (nonatomic, assign) CGFloat itemHeight;
-@property (nonatomic, readonly) CGFloat *itemWidths;
-@property (nonatomic, readonly) NSInteger numberOfItems;
+//@property (nonatomic, readonly) CGFloat *itemWidths;
+@property (nonatomic) NSInteger numberOfItems;
 @property (nonatomic, strong) UIView *headerView;
 @property (nonatomic, strong) UIView *footerView;
 @property (nonatomic, copy) NSString *headerTitle;

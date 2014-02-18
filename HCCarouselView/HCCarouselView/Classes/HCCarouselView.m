@@ -162,19 +162,19 @@ const CGFloat _HCCarouselViewDefaultItemWidth = 100.0;
             
             
             
-            CGFloat *itemWidths = malloc(numberOfItemsInCarousel * sizeof(CGFloat));
+//            CGFloat *itemWidths = malloc(numberOfItemsInCarousel * sizeof(CGFloat));
             CGFloat totalItemsWidth = 0;
 
             for (int item = 0; item < numberOfItemsInCarousel; item++) {
                 const CGFloat itemWidth = _delegateHas.widthForItemAtIndexPath ? [self.delegate multiSlideView:self widthForItemAtIndexPath:[NSIndexPath indexPathForItem:item inCarousel:carousel]] : defaultItemWidth;
-                itemWidths[item] = itemWidth;
+//                itemWidths[item] = itemWidth;
                 totalItemsWidth += itemWidth + 10;
             }
             totalItemsWidth += 10;
             
             carouselRecord.itemsWidth = totalItemsWidth;
-            [carouselRecord setNumberOfItems:numberOfItemsInCarousel withWidths:itemWidths];
-            free(itemWidths);
+            [carouselRecord setNumberOfItems:numberOfItemsInCarousel];
+//            free(itemWidths);
             carouselRecord.contentSize = CGSizeMake(totalItemsWidth, 0);
             
             [_carousels addObject:carouselRecord];
