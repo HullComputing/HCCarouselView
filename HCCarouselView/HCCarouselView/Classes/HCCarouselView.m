@@ -521,6 +521,7 @@ const CGFloat _HCCarouselViewDefaultItemWidth = 100.0;
     [_reusableCells removeAllObjects];
     
     [self _updateCarouselCache];
+    [self _layoutCarouselView];
     [self _setContentSize];
     
     _needsReload = NO;
