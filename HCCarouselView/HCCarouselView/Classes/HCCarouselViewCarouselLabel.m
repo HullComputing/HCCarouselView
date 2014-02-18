@@ -15,7 +15,7 @@
     HCCarouselViewCarouselLabel *label = [[self alloc] init];
     label.text = [NSString stringWithFormat:@"    %@", title];
     label.font = [UIFont fontWithName:@"HelveticaNeue-Medium" size:12.5];
-    label.textColor = [UIColor whiteColor];
+    label.textColor = [UIColor blackColor];
 //    label.shadowColor = [UIColor colorWithRed:100/255.f green:105/255.f blue:110/255.f alpha:1];
     label.shadowOffset = CGSizeMake(0, 1);
     label.backgroundColor = [UIColor clearColor];
