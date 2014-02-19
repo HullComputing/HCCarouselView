@@ -21,9 +21,18 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        
     }
     return self;
+}
+
+- (CGFloat)maximumZoomScale
+{
+    return 1.0;
+}
+
+- (CGFloat)minimumZoomScale
+{
+    return 1.0;
 }
 
 - (CGFloat)carouselHeight

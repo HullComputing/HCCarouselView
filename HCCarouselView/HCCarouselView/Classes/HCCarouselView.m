@@ -279,12 +279,12 @@ const CGFloat _HCCarouselViewDefaultItemWidth = 100.0;
 - (void)_layoutCarousel:(HCCarouselViewCarousel *)carouselRecord
 {
     if (carouselRecord && carouselRecord.numberOfItems) {
-//        for (UIView *subview in carouselRecord.subviews) {
-//            if ([subview isKindOfClass:[HCCarouselViewCell class]]) {
-//                [subview removeFromSuperview];
-//            }
-//        }
-//       
+        for (UIView *subview in carouselRecord.subviews) {
+            if ([subview isKindOfClass:[HCCarouselViewCell class]]) {
+                [subview removeFromSuperview];
+            }
+        }
+       
         
         
         for (int item = 0; item < carouselRecord.numberOfItems; item++) {
