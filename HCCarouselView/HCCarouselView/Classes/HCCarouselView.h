@@ -42,11 +42,11 @@
 
 
 @interface HCCarouselView : UIScrollView <UIScrollViewDelegate> {
-    @private
+@private
     __unsafe_unretained id<HCCarouselViewDataSource> _dataSource;
-//    CGFloat _carouselHeight;
+    //    CGFloat _carouselHeight;
     BOOL _needsReload;
-//    NSIndexPath *_selectedRow;
+    //    NSIndexPath *_selectedRow;
     NSMutableDictionary *_cachedCells;
     NSMutableSet *_reusableCells;
     NSMutableArray *_carousels;
@@ -78,6 +78,7 @@
 - (void)reloadData;
 - (NSInteger)numberOfCarousels;
 - (NSInteger)numberOfItemsInCarousel:(NSInteger)section;
+- (void)scrollCarouselToTop:(NSInteger)carousel;
 //- (NSArray *)indexPathsForItemsInRect:(CGRect)rect;
 //- (NSIndexPath *)indexPathForItemAtPoint:(CGPoint)point;
 - (NSIndexPath *)indexPathForCell:(HCCarouselViewCell *)cell;
