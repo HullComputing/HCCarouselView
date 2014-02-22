@@ -20,7 +20,7 @@
 		A694B99D18A8125900549545 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A694B99B18A8125900549545 /* InfoPlist.strings */; };
 		A694B99F18A8125900549545 /* HCCarouselViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A694B99E18A8125900549545 /* HCCarouselViewTests.m */; };
 		A694B9B318A8129600549545 /* HCCarouselView.m in Sources */ = {isa = PBXBuildFile; fileRef = A694B9AA18A8129600549545 /* HCCarouselView.m */; };
-		A694B9B418A8129600549545 /* HCCarouselViewCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = A694B9AC18A8129600549545 /* HCCarouselViewCarousel.m */; };
+		A694B9B418A8129600549545 /* HCCarouselViewRow.m in Sources */ = {isa = PBXBuildFile; fileRef = A694B9AC18A8129600549545 /* HCCarouselViewRow.m */; };
 		A694B9B518A8129600549545 /* HCCarouselViewCarouselLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = A694B9AE18A8129600549545 /* HCCarouselViewCarouselLabel.m */; };
 		A694B9B618A8129600549545 /* HCCarouselViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A694B9B018A8129600549545 /* HCCarouselViewCell.m */; };
 		A694B9B718A8129600549545 /* HCCarouselViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A694B9B218A8129600549545 /* HCCarouselViewController.m */; };
@@ -55,8 +55,8 @@
 		A694B99E18A8125900549545 /* HCCarouselViewTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HCCarouselViewTests.m; sourceTree = "<group>"; };
 		A694B9A918A8129600549545 /* HCCarouselView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCCarouselView.h; sourceTree = "<group>"; };
 		A694B9AA18A8129600549545 /* HCCarouselView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCCarouselView.m; sourceTree = "<group>"; };
-		A694B9AB18A8129600549545 /* HCCarouselViewCarousel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCCarouselViewCarousel.h; sourceTree = "<group>"; };
-		A694B9AC18A8129600549545 /* HCCarouselViewCarousel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCCarouselViewCarousel.m; sourceTree = "<group>"; };
+		A694B9AB18A8129600549545 /* HCCarouselViewRow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCCarouselViewRow.h; sourceTree = "<group>"; };
+		A694B9AC18A8129600549545 /* HCCarouselViewRow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCCarouselViewRow.m; sourceTree = "<group>"; };
 		A694B9AD18A8129600549545 /* HCCarouselViewCarouselLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCCarouselViewCarouselLabel.h; sourceTree = "<group>"; };
 		A694B9AE18A8129600549545 /* HCCarouselViewCarouselLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCCarouselViewCarouselLabel.m; sourceTree = "<group>"; };
 		A694B9AF18A8129600549545 /* HCCarouselViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCCarouselViewCell.h; sourceTree = "<group>"; };
@@ -165,8 +165,8 @@
 			children = (
 				A694B9A918A8129600549545 /* HCCarouselView.h */,
 				A694B9AA18A8129600549545 /* HCCarouselView.m */,
-				A694B9AB18A8129600549545 /* HCCarouselViewCarousel.h */,
-				A694B9AC18A8129600549545 /* HCCarouselViewCarousel.m */,
+				A694B9AB18A8129600549545 /* HCCarouselViewRow.h */,
+				A694B9AC18A8129600549545 /* HCCarouselViewRow.m */,
 				A694B9AD18A8129600549545 /* HCCarouselViewCarouselLabel.h */,
 				A694B9AE18A8129600549545 /* HCCarouselViewCarouselLabel.m */,
 				A694B9AF18A8129600549545 /* HCCarouselViewCell.h */,
@@ -276,7 +276,7 @@
 				A694B9B318A8129600549545 /* HCCarouselView.m in Sources */,
 				A694B9B618A8129600549545 /* HCCarouselViewCell.m in Sources */,
 				A694B9B518A8129600549545 /* HCCarouselViewCarouselLabel.m in Sources */,
-				A694B9B418A8129600549545 /* HCCarouselViewCarousel.m in Sources */,
+				A694B9B418A8129600549545 /* HCCarouselViewRow.m in Sources */,
 				A694B9B718A8129600549545 /* HCCarouselViewController.m in Sources */,
 				A694B98618A8125900549545 /* main.m in Sources */,
 				A694B98A18A8125900549545 /* HCAppDelegate.m in Sources */,

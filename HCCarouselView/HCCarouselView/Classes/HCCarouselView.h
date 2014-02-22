@@ -13,30 +13,30 @@
 
 @protocol HCCarouselViewDataSource <NSObject>
 @required
-- (NSInteger)multiSlideView:(HCCarouselView *)multiSlideView numberOfItemsInCarousel:(NSInteger)carousel;
-- (HCCarouselViewCell *)multiSlideView:(HCCarouselView *)multiSlideView cellForItemAtIndexPath:(NSIndexPath *)indexPath;
+- (NSInteger)carouselView:(HCCarouselView *)carouselView numberOfItemsInCarousel:(NSInteger)carousel;
+- (HCCarouselViewCell *)carouselView:(HCCarouselView *)carouselView cellForItemAtIndexPath:(NSIndexPath *)indexPath;
 
 @optional
-- (NSInteger)numberOfCarouselsInMultiSlideView:(HCCarouselView *)multiSlideView;
-- (NSString *)multiSlideView:(HCCarouselView *)multiSlideView titleForHeaderInCarousel:(NSInteger)carousel;
-- (NSString *)multiSlideView:(HCCarouselView *)multiSlideView titleForFooterInCarousel:(NSInteger)carousel;
+- (NSInteger)numberOfCarouselsInCarouselView:(HCCarouselView *)carouselView;
+- (NSString *)carouselView:(HCCarouselView *)carouselView titleForHeaderInCarousel:(NSInteger)carousel;
+- (NSString *)carouselView:(HCCarouselView *)carouselView titleForFooterInCarousel:(NSInteger)carousel;
 
 @end
 
 @protocol HCCarouselViewDelegate <UIScrollViewDelegate>
 @optional
-- (CGFloat)multiSlideView:(HCCarouselView *)multiSlideView heightForCarousel:(NSInteger)carousel;
-- (NSIndexPath *)multiSlideView:(HCCarouselView *)multiSlideView willSelectItemAtIndexPath:(NSIndexPath *)indexPath;
-- (CGFloat)multiSlideView:(HCCarouselView *)multiSlideView widthForItemAtIndexPath:(NSIndexPath *)indexPath;
-
-- (CGFloat)paddingBetweenCarouselsInMultiSlideView:(HCCarouselView *)multiSlideView;
-- (CGFloat)multiSlideView:(HCCarouselView *)multiSlideView paddingBetweenItemsInCarousel:(NSInteger)carousel;
-- (CGFloat)multiSlideView:(HCCarouselView *)multiSlideView heightForHeaderInCarousel:(NSInteger)carousel;
-- (CGFloat)multiSlideView:(HCCarouselView *)multiSlideView heightForFooterInCarousel:(NSInteger)carousel;
-- (UIView *)multiSlideView:(HCCarouselView *)multiSlideView viewForHeaderInCarousel:(NSInteger)carousel;
-- (UIView *)multiSlideView:(HCCarouselView *)multiSlideView viewForFooterInCarousel:(NSInteger)carousel;
-- (CGSize)multiSlideView:(HCCarouselView *)multiSlideView sizeForItemsInCarousel:(NSInteger)carousel;
-- (void)multiSlideView:(HCCarouselView *)multiSlideView didSelectItemAtIndexPath:(NSIndexPath *)indexPath;
+- (CGFloat)carouselView:(HCCarouselView *)carouselView heightForCarousel:(NSInteger)carousel;
+- (NSIndexPath *)carouselView:(HCCarouselView *)carouselView willSelectItemAtIndexPath:(NSIndexPath *)indexPath;
+- (CGFloat)carouselView:(HCCarouselView *)carouselView widthForItemAtIndexPath:(NSIndexPath *)indexPath;
+- (CGFloat)carouselView:(HCCarouselView *)carouselView heightForScrollViewInCarousel:(NSInteger)carousel;
+- (CGFloat)paddingBetweenCarouselsInCarouselView:(HCCarouselView *)carouselView;
+- (CGFloat)carouselView:(HCCarouselView *)carouselView paddingBetweenItemsInCarousel:(NSInteger)carousel;
+- (CGFloat)carouselView:(HCCarouselView *)carouselView heightForHeaderInCarousel:(NSInteger)carousel;
+- (CGFloat)carouselView:(HCCarouselView *)carouselView heightForFooterInCarousel:(NSInteger)carousel;
+- (UIView *)carouselView:(HCCarouselView *)carouselView viewForHeaderInCarousel:(NSInteger)carousel;
+- (UIView *)carouselView:(HCCarouselView *)carouselView viewForFooterInCarousel:(NSInteger)carousel;
+- (CGSize)carouselView:(HCCarouselView *)carouselView sizeForItemsInCarousel:(NSInteger)carousel;
+- (void)carouselView:(HCCarouselView *)carouselView didSelectItemAtIndexPath:(NSIndexPath *)indexPath;
 @end
 
 
@@ -52,25 +52,6 @@
     CGFloat _carouselHeaderHeight;
     CGFloat _carouselFooterHeight;
     CGFloat _itemWidth;
-    
-    struct {
-        unsigned heightForCarousel : 1;
-        unsigned willSelectItemAtIndexPath : 1;
-        unsigned heightForHeaderInCarousel : 1;
-        unsigned heightForFooterInCarousel : 1;
-        unsigned viewForHeaderInCarousel : 1;
-        unsigned viewForFooterInCarousel : 1;
-        unsigned widthForItemAtIndexPath : 1;
-        unsigned sizeForItemsInCarousel : 1;
-        unsigned didSelectItemAtIndexPath : 1;
-        unsigned paddingBetweenCarousels : 1;
-    } _delegateHas;
-    
-    struct {
-        unsigned numberOfCarouselsInMultiSlideView : 1;
-        unsigned titleForHeaderInCarousel : 1;
-        unsigned titleForFooterInCarousel : 1;
-    } _dataSourceHas;
 }
 
 - (id)initWithFrame:(CGRect)frame;

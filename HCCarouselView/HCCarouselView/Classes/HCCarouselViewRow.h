@@ -1,5 +1,5 @@
 //
-//  HCCarouselViewCarousel.h
+//  HCCarouselViewRow.h
 //  Cobrain
 //
 //  Created by Aaron Hull on 1/22/14.
@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "HCCarouselView.h"
 
-@interface HCCarouselViewCarousel : UIScrollView {
+@interface HCCarouselViewRow : NSObject {
     CGFloat itemsWidth;
     CGFloat itemHeight;
     CGFloat headerHeight;
@@ -22,12 +22,16 @@
     BOOL isVisible;
 }
 
+@property (nonatomic, strong) UIScrollView *scrollView;
+
+
 - (CGFloat)carouselHeight;
 //- (void)setNumberOfItems:(NSInteger)items withWidths:(CGFloat *)newItemWidths;
-- (id)initWithFrame:(CGRect)frame;
+@property (nonatomic, assign) CGFloat scrollViewHeight;
 @property (nonatomic, assign) CGFloat headerHeight;
 @property (nonatomic, assign) CGFloat footerHeight;
 @property (nonatomic, assign) CGFloat itemHeight;
+
 //@property (nonatomic, readonly) CGFloat *itemWidths;
 @property (nonatomic) NSInteger numberOfItems;
 @property (nonatomic, strong) UIView *headerView;
