@@ -188,81 +188,81 @@ const CGFloat _HCCarouselViewDefaultItemWidth = 100.0;
 
 - (void)_layoutCarouselView
 {
-    const CGSize boundsSize = self.bounds.size;
-    const CGFloat contentOffset = self.contentOffset.y;
-    const CGRect visibleBounds = CGRectMake(0, contentOffset, boundsSize.width, boundsSize.height);
-    //    CGRect visibleScrollViewBounds;
-    CGFloat viewHeight = 0;
-    
-    
-    const NSInteger numberOfCarousels = [_carousels count];
-    
-    
-    for (int carousel = 0; carousel < numberOfCarousels; carousel++) {
-        CGRect carouselRect = [self rectForCarousel:carousel];
-        viewHeight += carouselRect.size.height;
-        HCCarouselViewRow *carouselRecord = [_carousels objectAtIndex:carousel];
-        carouselRecord.scrollView.frame = carouselRect;
-        
-        if (CGRectIntersectsRect(carouselRect, visibleBounds)) {
-            if (carouselRecord && !carouselRecord.scrollView.superview) {
-                
-                
-                const CGRect headerRect = [self rectForHeaderInCarousel:carousel];
-                const CGRect footerRect = [self rectForFooterInCarousel:carousel];
-                const CGRect scrollViewRect = [self rectForScrollViewInCarousel:carousel];
-                
-                //            [carouselRecord setFrame:scrollViewRect];
-                
-                CGSize contentSize = self.contentSize;
-                if (contentSize.height < CGRectGetMaxY(carouselRecord.scrollView.frame)) {
-                    contentSize.height = CGRectGetMaxY(carouselRecord.scrollView.frame);
-                    self.contentSize = contentSize;
-                }
-                
-                [carouselRecord.scrollView setTag:carousel];
-                [carouselRecord.scrollView setDelegate:self];
-                [carouselRecord.scrollView setScrollEnabled:YES];
-                [carouselRecord.scrollView setDirectionalLockEnabled:YES];
-                
-                
-                
-                //            const NSInteger numberOfItems = carouselRecord.numberOfItems;
-                
-                if (carouselRecord.headerView) {
-                    carouselRecord.headerView.frame = headerRect;
-                    [carouselRecord.headerView setHidden:NO];
-                    
-                }
-                
-                if (carouselRecord.footerView) {
-                    carouselRecord.footerView.frame = footerRect;
-                }
-                [carouselRecord.scrollView setFrame:scrollViewRect];
-                [self addSubview:carouselRecord.scrollView];
-                //            visibleScrollViewBounds = CGRectMake(carouselRecord.contentOffset.x, 0, carouselRecord.bounds.size.width, carouselRecord.bounds.size.height);
-                [self _layoutCarousel:carouselRecord];
-                NSString *offsetString = [contentOffsetForReload objectForKey:@(carousel)];
-                if (offsetString) {
-                    CGPoint offset = CGPointFromString(offsetString);
-                    [carouselRecord.scrollView setContentOffset:offset];
-                }
-                
-            }
-        } else {
-            if (carouselRecord.scrollView.superview) {
-                [carouselRecord.scrollView removeFromSuperview];
-                
-            }
-            for (UIView *subview in carouselRecord.scrollView.subviews) {
-                if ([subview isKindOfClass:[HCCarouselViewCell class]]) {
-                    [subview removeFromSuperview];
-                }
-            }
-            
-        }
-        [contentOffsetForReload removeObjectForKey:@(carousel)];
-    }
+//    const CGSize boundsSize = self.bounds.size;
+//    const CGFloat contentOffset = self.contentOffset.y;
+//    const CGRect visibleBounds = CGRectMake(0, contentOffset, boundsSize.width, boundsSize.height);
+//    //    CGRect visibleScrollViewBounds;
+//    CGFloat viewHeight = 0;
+//    
+//    
+//    const NSInteger numberOfCarousels = [_carousels count];
+//    
+//    
+//    for (int carousel = 0; carousel < numberOfCarousels; carousel++) {
+//        CGRect carouselRect = [self rectForCarousel:carousel];
+//        viewHeight += carouselRect.size.height;
+//        HCCarouselViewRow *carouselRecord = [_carousels objectAtIndex:carousel];
+//        carouselRecord.scrollView.frame = carouselRect;
+//        
+//        if (CGRectIntersectsRect(carouselRect, visibleBounds)) {
+//            if (carouselRecord && !carouselRecord.scrollView.superview) {
+//                
+//                
+//                const CGRect headerRect = [self rectForHeaderInCarousel:carousel];
+//                const CGRect footerRect = [self rectForFooterInCarousel:carousel];
+//                const CGRect scrollViewRect = [self rectForScrollViewInCarousel:carousel];
+//                
+//                //            [carouselRecord setFrame:scrollViewRect];
+//                
+//                CGSize contentSize = self.contentSize;
+//                if (contentSize.height < CGRectGetMaxY(carouselRecord.scrollView.frame)) {
+//                    contentSize.height = CGRectGetMaxY(carouselRecord.scrollView.frame);
+//                    self.contentSize = contentSize;
+//                }
+//                
+//                [carouselRecord.scrollView setTag:carousel];
+//                [carouselRecord.scrollView setDelegate:self];
+//                [carouselRecord.scrollView setScrollEnabled:YES];
+//                [carouselRecord.scrollView setDirectionalLockEnabled:YES];
+//                
+//                
+//                
+//                //            const NSInteger numberOfItems = carouselRecord.numberOfItems;
+//                
+//                if (carouselRecord.headerView) {
+//                    carouselRecord.headerView.frame = headerRect;
+//                    [carouselRecord.headerView setHidden:NO];
+//                    
+//                }
+//                
+//                if (carouselRecord.footerView) {
+//                    carouselRecord.footerView.frame = footerRect;
+//                }
+//                [carouselRecord.scrollView setFrame:scrollViewRect];
+//                [self addSubview:carouselRecord.scrollView];
+//                //            visibleScrollViewBounds = CGRectMake(carouselRecord.contentOffset.x, 0, carouselRecord.bounds.size.width, carouselRecord.bounds.size.height);
+//                [self _layoutCarousel:carouselRecord];
+//                NSString *offsetString = [contentOffsetForReload objectForKey:@(carousel)];
+//                if (offsetString) {
+//                    CGPoint offset = CGPointFromString(offsetString);
+//                    [carouselRecord.scrollView setContentOffset:offset];
+//                }
+//                
+//            }
+//        } else {
+//            if (carouselRecord.scrollView.superview) {
+//                [carouselRecord.scrollView removeFromSuperview];
+//                
+//            }
+//            for (UIView *subview in carouselRecord.scrollView.subviews) {
+//                if ([subview isKindOfClass:[HCCarouselViewCell class]]) {
+//                    [subview removeFromSuperview];
+//                }
+//            }
+//            
+//        }
+//        [contentOffsetForReload removeObjectForKey:@(carousel)];
+//    }
 }
 
 - (void)_layoutCarousel:(HCCarouselViewRow *)carouselRecord
@@ -422,6 +422,17 @@ const CGFloat _HCCarouselViewDefaultItemWidth = 100.0;
     }
     
     return CGRectZero;
+}
+
+- (NSArray *)carouselsInView
+{
+    NSMutableArray *carouselsInView = [[NSMutableArray alloc] initWithCapacity:_carousels.count];
+    for (HCCarouselView *carouselView in _carousels) {
+        if (CGRectIntersectsRect(carouselView.frame, self.frame)) {
+            [carouselsInView addObject:carouselView];
+        }
+    }
+    return carouselsInView;
 }
 
 - (void)beginUpdates
