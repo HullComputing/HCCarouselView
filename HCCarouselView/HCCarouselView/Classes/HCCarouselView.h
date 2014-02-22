@@ -27,11 +27,10 @@
 @optional
 - (CGFloat)multiSlideView:(HCCarouselView *)multiSlideView heightForCarousel:(NSInteger)carousel;
 - (NSIndexPath *)multiSlideView:(HCCarouselView *)multiSlideView willSelectItemAtIndexPath:(NSIndexPath *)indexPath;
-
 - (CGFloat)multiSlideView:(HCCarouselView *)multiSlideView widthForItemAtIndexPath:(NSIndexPath *)indexPath;
 
 - (CGFloat)paddingBetweenCarouselsInMultiSlideView:(HCCarouselView *)multiSlideView;
-
+- (CGFloat)multiSlideView:(HCCarouselView *)multiSlideView paddingBetweenItemsInCarousel:(NSInteger)carousel;
 - (CGFloat)multiSlideView:(HCCarouselView *)multiSlideView heightForHeaderInCarousel:(NSInteger)carousel;
 - (CGFloat)multiSlideView:(HCCarouselView *)multiSlideView heightForFooterInCarousel:(NSInteger)carousel;
 - (UIView *)multiSlideView:(HCCarouselView *)multiSlideView viewForHeaderInCarousel:(NSInteger)carousel;

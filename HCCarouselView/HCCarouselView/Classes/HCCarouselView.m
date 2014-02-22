@@ -44,6 +44,12 @@ const CGFloat _HCCarouselViewDefaultItemWidth = 100.0;
 {
     self = [super init];
     if (self) {
+        _dataSourceHas.numberOfCarouselsInMultiSlideView = 0;
+        _dataSourceHas.titleForFooterInCarousel = 0;
+        _dataSourceHas.titleForHeaderInCarousel = 0;
+        
+        
+        
         _cachedCells = [[NSMutableDictionary alloc] init];
         _carousels = [[NSMutableArray alloc] init];
         _reusableCells = [[NSMutableSet alloc] init];
@@ -92,6 +98,8 @@ const CGFloat _HCCarouselViewDefaultItemWidth = 100.0;
 //    _carouselHeight = newCarouselHeight;
 //    [self setNeedsLayout];
 //}
+
+
 
 - (void)setItemWidth:(CGFloat)newItemWidth
 {
@@ -429,9 +437,11 @@ const CGFloat _HCCarouselViewDefaultItemWidth = 100.0;
                 size.width = _delegateHas.widthForItemAtIndexPath ? [self.delegate multiSlideView:self widthForItemAtIndexPath:indexPath] : _HCCarouselViewDefaultItemWidth;
                 size.height = carouselRecord.itemHeight;
             }
-            
-            
-            CGFloat offset = (item * (size.width + 10.0)) + 10.0;
+            CGFloat padding = 10.0;
+            if ([self.delegate respondsToSelector:@selector(multiSlideView:paddingBetweenItemsInCarousel:)]) {
+                padding = [self.delegate multiSlideView:self paddingBetweenItemsInCarousel:indexPath.carousel];
+            }
+            CGFloat offset = (item * (size.width + padding)) + padding;
             //(carouselRecord.carouselHeight - size.height) / 2.0
             return CGRectMake(offset, 0.0, size.width, size.height);
         }
@@ -505,7 +515,7 @@ const CGFloat _HCCarouselViewDefaultItemWidth = 100.0;
 
 - (NSInteger)numberOfCarousels
 {
-    if ([self.dataSource respondsToSelector:@selector(numberOfCarouselsInMultiSlideView:)]) {
+    if (self.dataSource && [self.dataSource respondsToSelector:@selector(numberOfCarouselsInMultiSlideView:)]) {
         return [self.dataSource numberOfCarouselsInMultiSlideView:self];
     } else {
         return 1;
@@ -514,7 +524,7 @@ const CGFloat _HCCarouselViewDefaultItemWidth = 100.0;
 
 - (NSInteger)numberOfItemsInCarousel:(NSInteger)carousel
 {
-    if (_dataSourceHas.numberOfCarouselsInMultiSlideView) {
+    if (self.dataSource && [self.dataSource respondsToSelector:@selector(multiSlideView:numberOfItemsInCarousel:)]) {
         return [self.dataSource multiSlideView:self numberOfItemsInCarousel:carousel];
     }
     return 0;
@@ -547,6 +557,7 @@ const CGFloat _HCCarouselViewDefaultItemWidth = 100.0;
 {
     if (_needsReload) {
         [self reloadData];
+//        [self _layoutCarouselView];
     }
 }
 
@@ -560,7 +571,7 @@ const CGFloat _HCCarouselViewDefaultItemWidth = 100.0;
 {
     [self _reloadDataIfNeeded];
     [self _layoutCarouselView];
-    
+
     [super layoutSubviews];
 }
 
