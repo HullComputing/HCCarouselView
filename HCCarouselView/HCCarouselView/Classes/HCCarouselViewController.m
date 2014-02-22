@@ -28,8 +28,8 @@
 {
     self = [super initWithCoder:aDecoder];
     if (self) {
-        self.multiSlideView.delegate = self;
-        self.multiSlideView.dataSource = self;
+        self.carouselView.delegate = self;
+        self.carouselView.dataSource = self;
     }
     return self;
 }
@@ -47,8 +47,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.multiSlideView.delegate = self;
-    self.multiSlideView.dataSource = self;
+    self.carouselView.delegate = self;
+    self.carouselView.dataSource = self;
     
 }
 
@@ -62,12 +62,12 @@
     [super didReceiveMemoryWarning];
 }
 
-- (HCCarouselViewCell *)multiSlideView:(HCCarouselView *)multiSlideView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+- (HCCarouselViewCell *)carouselView:(HCCarouselView *)carouselView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     return nil;
 }
 
-- (NSInteger)multiSlideView:(HCCarouselView *)multiSlideView numberOfItemsInCarousel:(NSInteger)carousel
+- (NSInteger)carouselView:(HCCarouselView *)carouselView numberOfItemsInCarousel:(NSInteger)carousel
 {
     return 0;
 }

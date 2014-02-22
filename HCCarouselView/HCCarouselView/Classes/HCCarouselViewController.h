@@ -10,7 +10,7 @@
 #import "HCCarouselView.h"
 
 @interface HCCarouselViewController : UIViewController <HCCarouselViewDataSource, HCCarouselViewDelegate>
-@property (nonatomic, strong) IBOutlet HCCarouselView *multiSlideView;
+@property (nonatomic, strong) IBOutlet HCCarouselView *carouselView;
 @property (nonatomic, strong) NSArray *visibleCells;
 
 
