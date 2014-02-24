@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Hull Computing. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+//#import <UIKit/UIKit.h>
 
 #import "HCAppDelegate.h"
 

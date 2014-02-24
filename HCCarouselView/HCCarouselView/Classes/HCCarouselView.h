@@ -25,7 +25,7 @@
 
 @protocol HCCarouselViewDelegate <UIScrollViewDelegate>
 @optional
-- (CGFloat)carouselView:(HCCarouselView *)carouselView heightForCarousel:(NSInteger)carousel;
+//- (CGFloat)carouselView:(HCCarouselView *)carouselView heightForCarousel:(NSInteger)carousel;
 - (NSIndexPath *)carouselView:(HCCarouselView *)carouselView willSelectItemAtIndexPath:(NSIndexPath *)indexPath;
 - (CGFloat)carouselView:(HCCarouselView *)carouselView widthForItemAtIndexPath:(NSIndexPath *)indexPath;
 - (CGFloat)carouselView:(HCCarouselView *)carouselView heightForScrollViewInCarousel:(NSInteger)carousel;
@@ -40,19 +40,20 @@
 @end
 
 
-@interface HCCarouselView : UIScrollView <UIScrollViewDelegate> {
-@private
-    __unsafe_unretained id<HCCarouselViewDataSource> _dataSource;
-    //    CGFloat _carouselHeight;
-    BOOL _needsReload;
-    //    NSIndexPath *_selectedRow;
-    NSMutableDictionary *_cachedCells;
-    NSMutableSet *_reusableCells;
-    NSMutableArray *_carousels;
-    CGFloat _carouselHeaderHeight;
-    CGFloat _carouselFooterHeight;
-    CGFloat _itemWidth;
-}
+@interface HCCarouselView : UIScrollView <UIScrollViewDelegate>
+//{
+//@private
+//    __unsafe_unretained id<HCCarouselViewDataSource> _dataSource;
+//    //    CGFloat _carouselHeight;
+//    BOOL _needsReload;
+//    //    NSIndexPath *_selectedRow;
+//    NSMutableDictionary *_cachedCells;
+//    NSMutableSet *_reusableCells;
+//    NSMutableArray *_carousels;
+//    CGFloat _carouselHeaderHeight;
+//    CGFloat _carouselFooterHeight;
+//    CGFloat _itemWidth;
+//}
 
 - (id)initWithFrame:(CGRect)frame;
 - (void)reloadData;
@@ -83,7 +84,7 @@
 //- (NSIndexPath *)indexPathForSelectedItem;
 
 
-@property (nonatomic, assign) id<HCCarouselViewDelegate> delegate;
+@property (nonatomic, assign) id<HCCarouselViewDelegate, UIScrollViewDelegate> delegate;
 @property (nonatomic, assign) id<HCCarouselViewDataSource> dataSource;
 //@property (nonatomic) CGFloat carouselHeight;
 @property (nonatomic) CGFloat carouselHeaderHeight;

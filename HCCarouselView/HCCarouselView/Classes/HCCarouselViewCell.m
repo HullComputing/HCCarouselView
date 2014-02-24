@@ -29,43 +29,28 @@ extern CGFloat _HCCarouselViewDefaultItemWidth;
     self = [self initWithFrame:CGRectMake(0, 0, size.width, size.height)];
     if (self) {
         _reuseIdentifier = [reuseIdentifier copy];
-        self.titleLabel = [[UILabel alloc] initWithFrame:self.bounds];
-//        [self addSubview:self.contentView];
+//        self.titleLabel = [[UILabel alloc] initWithFrame:self.bounds];
+        self.contentView = [[UIView alloc] initWithFrame:self.bounds];
+        [self addSubview:self.contentView];
 //        [self addSubview:self.titleLabel];
     }
     return self;
 }
 
-- (UIView *)contentView
-{
-    if (!_contentView) {
-        _contentView = [[UIView alloc] initWithFrame:self.bounds];
-    }
-    if (!_contentView.superview) {
-        [self addSubview:_contentView];
-        [self layoutIfNeeded];
-    }
-    return _contentView;
-}
-
-- (void)layoutSubviews
-{
-    [super layoutSubviews];
-    
-    const CGRect bounds = self.bounds;
-    _contentView.frame = bounds;
-    [_contentView setClipsToBounds:YES];
-
-    
-}
+//- (void)layoutSubviews
+//{
+//    [super layoutSubviews];
+//    
+//    const CGRect bounds = self.bounds;
+//    _contentView.frame = bounds;
+//    [_contentView setClipsToBounds:YES];
+//
+//    
+//}
 
 - (void)prepareForReuse
 {
-    for (UIView *subview in _contentView.subviews) {
-        [subview removeFromSuperview];
-    }
-    [_contentView removeFromSuperview];
-    
+
 }
 
 @end

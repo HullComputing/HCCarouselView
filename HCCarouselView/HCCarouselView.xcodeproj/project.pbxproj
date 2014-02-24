@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A621A20218BB8B9D0076109B /* HCCarouselView.m in Sources */ = {isa = PBXBuildFile; fileRef = A694B9AA18A8129600549545 /* HCCarouselView.m */; };
+		A621A20318BB8B9D0076109B /* HCCarouselViewRow.m in Sources */ = {isa = PBXBuildFile; fileRef = A694B9AC18A8129600549545 /* HCCarouselViewRow.m */; };
+		A621A20418BB8B9D0076109B /* HCCarouselViewCarouselLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = A694B9AE18A8129600549545 /* HCCarouselViewCarouselLabel.m */; };
+		A621A20518BB8B9D0076109B /* HCCarouselViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A694B9B018A8129600549545 /* HCCarouselViewCell.m */; };
+		A621A20618BB8B9D0076109B /* HCCarouselViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A694B9B218A8129600549545 /* HCCarouselViewController.m */; };
 		A694B97A18A8125900549545 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A694B97918A8125900549545 /* Foundation.framework */; };
 		A694B97C18A8125900549545 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A694B97B18A8125900549545 /* CoreGraphics.framework */; };
 		A694B97E18A8125900549545 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A694B97D18A8125900549545 /* UIKit.framework */; };
@@ -19,11 +24,6 @@
 		A694B99518A8125900549545 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A694B97D18A8125900549545 /* UIKit.framework */; };
 		A694B99D18A8125900549545 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A694B99B18A8125900549545 /* InfoPlist.strings */; };
 		A694B99F18A8125900549545 /* HCCarouselViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A694B99E18A8125900549545 /* HCCarouselViewTests.m */; };
-		A694B9B318A8129600549545 /* HCCarouselView.m in Sources */ = {isa = PBXBuildFile; fileRef = A694B9AA18A8129600549545 /* HCCarouselView.m */; };
-		A694B9B418A8129600549545 /* HCCarouselViewRow.m in Sources */ = {isa = PBXBuildFile; fileRef = A694B9AC18A8129600549545 /* HCCarouselViewRow.m */; };
-		A694B9B518A8129600549545 /* HCCarouselViewCarouselLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = A694B9AE18A8129600549545 /* HCCarouselViewCarouselLabel.m */; };
-		A694B9B618A8129600549545 /* HCCarouselViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A694B9B018A8129600549545 /* HCCarouselViewCell.m */; };
-		A694B9B718A8129600549545 /* HCCarouselViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A694B9B218A8129600549545 /* HCCarouselViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -273,12 +273,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A694B9B318A8129600549545 /* HCCarouselView.m in Sources */,
-				A694B9B618A8129600549545 /* HCCarouselViewCell.m in Sources */,
-				A694B9B518A8129600549545 /* HCCarouselViewCarouselLabel.m in Sources */,
-				A694B9B418A8129600549545 /* HCCarouselViewRow.m in Sources */,
-				A694B9B718A8129600549545 /* HCCarouselViewController.m in Sources */,
+				A621A20218BB8B9D0076109B /* HCCarouselView.m in Sources */,
+				A621A20518BB8B9D0076109B /* HCCarouselViewCell.m in Sources */,
+				A621A20418BB8B9D0076109B /* HCCarouselViewCarouselLabel.m in Sources */,
 				A694B98618A8125900549545 /* main.m in Sources */,
+				A621A20618BB8B9D0076109B /* HCCarouselViewController.m in Sources */,
+				A621A20318BB8B9D0076109B /* HCCarouselViewRow.m in Sources */,
 				A694B98A18A8125900549545 /* HCAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

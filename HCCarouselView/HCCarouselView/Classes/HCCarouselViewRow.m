@@ -8,6 +8,48 @@
 
 #import "HCCarouselViewRow.h"
 
+
+@implementation HCCarouselRowScrollView
+
+- (id)initWithFrame:(CGRect)frame
+{
+    self = [super initWithFrame:frame];
+    if (self) {
+    }
+    return self;
+}
+
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    UITouch *touch = [touches anyObject];
+    HCCarouselViewCell *cell = nil;
+    UIView *view = [touch view];
+    if (![view isKindOfClass:[HCCarouselViewCell class]]) {
+        UIView *superview = view.superview;
+        if ([superview isKindOfClass:[HCCarouselViewCell class]]) {
+            cell = (HCCarouselViewCell *)superview;
+        }
+    } else {
+        cell = (HCCarouselViewCell *)view;
+    }
+    if (cell) {
+        [(HCCarouselView *)self.superview didSelectCell:cell];
+    }
+}
+
+
+/*
+ // Only override drawRect: if you perform custom drawing.
+ // An empty implementation adversely affects performance during animation.
+ - (void)drawRect:(CGRect)rect
+ {
+ // Drawing code
+ }
+ */
+
+@end
+
+
 @interface HCCarouselViewRow ()
 //@property (nonatomic, strong) HCCarouselView *superview;
 
@@ -15,7 +57,7 @@
 
 @implementation HCCarouselViewRow
 
-@synthesize itemsWidth, itemHeight, headerHeight, footerHeight, numberOfItems, headerView, footerView, headerTitle, footerTitle, carousel, scrollViewHeight;
+@synthesize itemsWidth, itemHeight, headerHeight, footerHeight, numberOfItems, headerView, footerView, headerTitle, footerTitle, carousel, scrollViewHeight, scrollView;
 
 - (id)init
 {
@@ -55,6 +97,5 @@
 //        [(HCCarouselView *)self.superview didSelectCell:cell];
 //    }
 //}
-
 
 @end

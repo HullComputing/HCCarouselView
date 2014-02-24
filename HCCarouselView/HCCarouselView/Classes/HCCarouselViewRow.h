@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "HCCarouselView.h"
+//#import "HCCarouselRowScrollView.h"
+
+@interface HCCarouselRowScrollView : UIScrollView
+
+@end
+
 
 @interface HCCarouselViewRow : NSObject {
     CGFloat itemsWidth;
@@ -22,7 +28,7 @@
     BOOL isVisible;
 }
 
-@property (nonatomic, strong) UIScrollView *scrollView;
+@property (nonatomic, strong) HCCarouselRowScrollView *scrollView;
 
 
 - (CGFloat)carouselHeight;
