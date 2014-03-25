@@ -7,6 +7,6 @@ s.license = { :type => 'COMMERCIAL', :text => <<-LICENSE
         LICENSE
         }
 s.platform = :ios
-s.source_files = 'HCCarouselView/HCCarouselView/Classes/**, HCCarouselView/HCCarouselView/Classes/Categories/**'
+s.source_files = "HCCarouselView/HCCarouselView/Classes/*.{h,m}", "HCCarouselView/HCCarouselView/Classes/Categories/*.{h,m}"
 s.requires_arc = true
 end
