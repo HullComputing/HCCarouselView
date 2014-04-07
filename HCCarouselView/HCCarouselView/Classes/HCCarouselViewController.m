@@ -29,7 +29,6 @@
     self = [super initWithCoder:aDecoder];
     if (self) {
         self.carouselView.delegate = self;
-        self.carouselView.dataSource = self;
     }
     return self;
 }
@@ -48,7 +47,6 @@
 {
     [super viewDidLoad];
     self.carouselView.delegate = self;
-    self.carouselView.dataSource = self;
     
 }
 

@@ -9,38 +9,53 @@
 #import <UIKit/UIKit.h>
 #import "HCCarouselView.h"
 //#import "HCCarouselRowScrollView.h"
+@class HCCarouselViewCarousel;
+@protocol HCCarouselViewCarouselDelegate <NSObject>
+
+@required
+- (UIView *)headerViewForCarousel:(NSInteger)carousel;
+- (UIView *)footerViewForCarousel:(NSInteger)carousel;
+
+- (CGFloat)heightForScrollViewInCarousel:(NSInteger)carousel;
+- (CGFloat)heightForHeaderInCarousel:(NSInteger)carousel;
+- (CGFloat)heightForFooterInCarousel:(NSInteger)carousel;
+
+- (HCCarouselViewCell *)cellForItemAtIndexPath:(NSIndexPath *)indexPath;
+- (CGFloat)horizontalPaddingBetweenItemsInCarousel:(NSInteger)carousel;
+- (void)didSelectCell:(HCCarouselViewCell *)cell;
+- (CGSize)sizeForItemInCarousel:(NSInteger)carousel;
+@end
 
 @interface HCCarouselViewCarouselScrollView : UIScrollView
-
+- (void)didSelectCell:(HCCarouselViewCell *)cell;
 @end
 
 
-@interface HCCarouselViewCarousel : NSObject
+@interface HCCarouselViewCarousel : UIView <UIScrollViewDelegate>
 
-@property (nonatomic, strong) HCCarouselViewCarouselScrollView *scrollView;
 
-/**
- *  Returns the overall height of the carousel including the header and footer heights.
- *
- *  @return The height of the carousel.
- */
-- (CGFloat)carouselHeight;
+///**
+// *  Returns the overall height of the carousel including the header and footer heights.
+// *
+// *  @return The height of the carousel.
+// */
+//- (CGFloat)carouselHeight;
 
-@property (nonatomic, assign) CGFloat scrollViewHeight;
-@property (nonatomic, assign) CGFloat headerHeight;
-@property (nonatomic, assign) CGFloat footerHeight;
-@property (nonatomic, assign) CGSize itemSize;
+@property (nonatomic) CGFloat carouselHeight;
 
 @property (nonatomic) NSInteger numberOfItems;
-@property (nonatomic, strong) UIView *headerView;
-@property (nonatomic, strong) UIView *footerView;
-@property (nonatomic, copy) NSString *headerTitle;
-@property (nonatomic, copy) NSString *footerTitle;
 
-@property (nonatomic) NSInteger carousel;
+@property (nonatomic, strong) HCCarouselViewCarouselScrollView *scrollView;
+@property (nonatomic, assign) id<HCCarouselViewCarouselDelegate>delegate;
 
-- (id)initWithHeader:(UIView *)headerView footer:(UIView *)footerView itemSize:(CGSize)itemSize;
+@property (nonatomic) NSInteger carouselIndex;
 
-//- (id)initWithCarousel:(NSInteger)carousel startingY:(CGFloat)yPosition carouselHeight:(CGFloat)height headerHeight:(CGFloat)headerHeight footerHeight:(CGFloat)footerHeight width:(CGFloat)width;
+- (id)initWithFrame:(CGRect)frame carouselIndex:(NSInteger)carouselIndex numberOfItems:(NSInteger)numberOfItems delegate:(id<HCCarouselViewCarouselDelegate>)delegate;
+
+- (void)clearItems;
+
+- (void)layoutItems;
+
+- (void)didSelectCell:(HCCarouselViewCell *)cell;
 
 @end
