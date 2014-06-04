@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Cobrain. All rights reserved.
 //
 
-#import "HCCarouselViewCarouselLabel.h"
+#import <HCCarouselView/HCCarouselViewCarouselLabel.h>
 
 @implementation HCCarouselViewCarouselLabel
 

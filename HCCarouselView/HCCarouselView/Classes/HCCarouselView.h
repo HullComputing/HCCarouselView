@@ -6,27 +6,49 @@
 //  Copyright (c) 2014 Cobrain. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+//#import <UIKit/UIKit.h>
 #import <Availability.h>
 #import "HCCarouselViewCell.h"
 
 @class HCCarouselView;
 
 /**
- *  HCCarouselViewDataSource
+ The `HCCarouselViewDelegate` protocol is adopted by an object that will serve as the
+ delegate for the carouselView.
  */
 @protocol HCCarouselViewDelegate <UIScrollViewDelegate>
 @optional
 
+/**
+ *  (Optional) Requests a title for the header for the  from the delegate.
+ *  The carouselView will display a header in a fixed font.
+ *
+ *  @param carouselView The carouselView to which the carousel belongs.
+ *  @param carousel     The index number of the carousel to which the header belongs.
+ *
+ *  @return An NSString with the desired header for the carousel referenced.
+ */
 - (NSString *)carouselView:(HCCarouselView *)carouselView titleForHeaderInCarousel:(NSInteger)carousel __AVAILABILITY_INTERNAL__IPHONE_6_1;
+
+/**
+ *  (Optional) Requests a title for the footer for the specified carousel from the delegate.
+ *  The carouselView will display a footer in a fixed font.
+ *
+ *  @param carouselView The carouselView to which the carousel belongs.
+ *  @param carousel     The index number of the carousel to which the footer belongs.
+ *
+ *  @return An NSString with the desired footer for the carousel referenced.
+ */
 - (NSString *)carouselView:(HCCarouselView *)carouselView titleForFooterInCarousel:(NSInteger)carousel __AVAILABILITY_INTERNAL__IPHONE_6_1;
 
-
-//- (CGFloat)carouselView:(HCCarouselView *)carouselView heightForCarousel:(NSInteger)carousel __AVAILABILITY_INTERNAL__IPHONE_6_1;
-
-- (NSIndexPath *)carouselView:(HCCarouselView *)carouselView willSelectItemAtIndexPath:(NSIndexPath *)indexPath __AVAILABILITY_INTERNAL__IPHONE_6_1;
-
-//- (CGFloat)carouselView:(HCCarouselView *)carouselView widthForItemAtIndexPath:(NSIndexPath *)indexPath __AVAILABILITY_INTERNAL__IPHONE_6_1;
+/**
+ *  (Optional) Requests a height for the header for the specified carousel from the delegate.
+ *
+ *  @param carouselView The carouselView to which the carousel belongs.
+ *  @param carousel     The index number of the carousel to which header belongs.
+ *
+ *  @return A CGFloat for the height of the header.
+ */
 - (CGFloat)carouselView:(HCCarouselView *)carouselView heightForScrollViewInCarousel:(NSInteger)carousel __AVAILABILITY_INTERNAL__IPHONE_6_1;
 
 - (CGFloat)verticalPaddingBetweenCarouselsInCarouselView:(HCCarouselView *)carouselView __AVAILABILITY_INTERNAL__IPHONE_6_1;
@@ -75,9 +97,14 @@
 
 @end
 
-@interface HCCarouselView : UIScrollView <UIScrollViewDelegate>
-//@property (nonatomic, strong) NSMutableSet *reusableCells;
-- (id)initWithFrame:(CGRect)frame __AVAILABILITY_INTERNAL__IPHONE_6_1;
+/**
+ `HCCarouselView` is a subclass of `UIScrollView` functioning similar to a `UITableView`
+ with multiple horizontal UIScrollViews inside of a vertical UIScrollView.
+ */
+
+NS_CLASS_AVAILABLE_IOS(6_1) @interface HCCarouselView : UIScrollView <UIScrollViewDelegate>
+
+@property (nonatomic, strong) NSMutableDictionary *carouselCache;
 - (void)reloadData __AVAILABILITY_INTERNAL__IPHONE_6_1;
 - (NSInteger)numberOfCarousels __AVAILABILITY_INTERNAL__IPHONE_6_1;
 - (NSInteger)numberOfItemsInCarousel:(NSInteger)section __AVAILABILITY_INTERNAL__IPHONE_6_1;
@@ -91,9 +118,9 @@
 - (HCCarouselViewCell *)cellForItemAtIndexPath:(NSIndexPath *)indexPath __AVAILABILITY_INTERNAL__IPHONE_6_1;
 
 - (CGRect)rectForCarousel:(NSInteger)carousel __AVAILABILITY_INTERNAL__IPHONE_6_1;
-- (CGRect)rectForHeaderInCarousel:(NSInteger)carousel __AVAILABILITY_INTERNAL__IPHONE_6_1;
-- (CGRect)rectForFooterInCarousel:(NSInteger)carousel __AVAILABILITY_INTERNAL__IPHONE_6_1;
-- (CGRect)rectForItemAtIndexPath:(NSIndexPath *)indexPath __AVAILABILITY_INTERNAL__IPHONE_6_1;
+//- (CGRect)rectForHeaderInCarousel:(NSInteger)carousel __AVAILABILITY_INTERNAL__IPHONE_6_1;
+//- (CGRect)rectForFooterInCarousel:(NSInteger)carousel __AVAILABILITY_INTERNAL__IPHONE_6_1;
+//- (CGRect)rectForItemAtIndexPath:(NSIndexPath *)indexPath __AVAILABILITY_INTERNAL__IPHONE_6_1;
 
 - (void)didSelectCell:(HCCarouselViewCell *)cell __AVAILABILITY_INTERNAL__IPHONE_6_1;
 
@@ -112,17 +139,22 @@
 
 //- (NSIndexPath *)indexPathForSelectedItem __AVAILABILITY_INTERNAL__IPHONE_6_1;
 
-@property (nonatomic, assign) id<HCCarouselViewDelegate, UIScrollViewDelegate> delegate __AVAILABILITY_INTERNAL__IPHONE_6_1;
+- (NSArray *)visibleCarousels __AVAILABILITY_INTERNAL__IPHONE_6_1;
+
+@property (nonatomic, weak) id<HCCarouselViewDelegate, UIScrollViewDelegate> delegate __AVAILABILITY_INTERNAL__IPHONE_6_1;
 //@property (nonatomic) CGFloat carouselHeight;
-@property (nonatomic) CGFloat carouselHeaderHeight;
-@property (nonatomic) CGFloat carouselFooterHeight;
+//@property (nonatomic) CGFloat carouselHeaderHeight;
+//@property (nonatomic) CGFloat carouselFooterHeight;
+@property (nonatomic, strong) UIView *carouselViewHeaderView;
+@property (nonatomic, strong) UIView *carouselViewFooterView;
 
 @end
 
 @interface NSIndexPath (HCCarouselView)
 
-+ (NSIndexPath *)indexPathForItem:(NSInteger)item inCarousel:(NSInteger)carousel __AVAILABILITY_INTERNAL__IPHONE_6_1;
 
++ (NSIndexPath *)indexPathForItem:(NSInteger)item inCarousel:(NSInteger)carousel __AVAILABILITY_INTERNAL__IPHONE_6_1;
+//@property (nonatomic, readonly) CGSize contentSize;
 @property(nonatomic,readonly) NSInteger item;
 @property(nonatomic,readonly) NSInteger carousel;
 

@@ -16,7 +16,7 @@
 
 - (id)initWithReuseIdentifier:(NSString *)reuseIdentifier size:(CGSize)size;
 - (void)prepareForReuse;
-
+- (id)initWithCoder:(NSCoder *)aDecoder reuseIdentifier:(NSString *)reuseIdentifier;
 @property (nonatomic, strong) UIView *contentView;
 @property (nonatomic, readonly, copy) NSString *reuseIdentifier;
 //@property (nonatomic,  strong) UILabel *titleLabel;

@@ -6,10 +6,10 @@
 //  Copyright (c) 2014 Cobrain. All rights reserved.
 //
 
-#import "HCCarouselViewController.h"
+#import <HCCarouselView/HCCarouselViewController.h>
 
 @interface HCCarouselViewController ()
-@property (nonatomic, strong) NSArray *carousels;
+@property (nonatomic, copy) NSArray *carousels;
 
 @end
 
